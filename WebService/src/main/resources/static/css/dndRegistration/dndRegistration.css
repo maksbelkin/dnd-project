@@ -1,0 +1,169 @@
+body {
+  margin: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: url('/img/forge_Authorization.webp');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  font-family: 'Pochaevsk', sans-serif;
+}
+
+.auth-card {
+  width: 380px;
+  min-height: 460px;
+  max-width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  padding: 40px 32px 32px 32px;
+  border-radius: 20px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.4);
+  text-align: center;
+  transition: 0.3s;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.auth-title {
+  font-size: 24px;
+  font-weight: 700;
+  color: #1f1f1f;
+  margin-bottom: 30px;
+  letter-spacing: -0.3px;
+}
+
+.auth-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  width: 100%;
+}
+
+.form-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #333;
+  margin-bottom: 6px;
+}
+
+.form-input {
+  width: 100%;
+  padding: 12px 16px;
+  border: 1px solid #ccc;
+  border-radius: 10px;
+  font-size: 15px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+  box-sizing: border-box;
+  background-color: #fff;
+  color: #333;
+}
+
+.form-input::placeholder {
+  color: #999;
+}
+
+.form-input:focus {
+  border-color: #33A1D6;
+  box-shadow: 0 0 0 3px rgba(51, 161, 214, 0.2);
+}
+
+.form-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23666' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6 9 12 15 18 9'%3e%3c/polyline%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 14px center;
+  background-size: 16px;
+  padding-right: 42px;
+  cursor: pointer;
+}
+
+.form-select option {
+  color: #333;
+  background-color: #fff;
+}
+
+.btn-login {
+  width: 100%;
+  padding: 14px;
+  background-color: #1f1f1f;
+  color: white;
+  font-size: 16px;
+  font-weight: 600;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  margin-top: 10px;
+}
+
+.btn-login:hover {
+  background-color: #333;
+}
+
+.btn-login:active {
+  transform: scale(0.98);
+}
+
+.forgot-password {
+  margin-top: 20px;
+  font-size: 14px;
+  color: #33A1D6;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.forgot-password:hover {
+  text-decoration: underline;
+  color: #2582b0;
+}
+
+.support-info {
+  margin-top: 28px;
+  padding: 14px 18px;
+  width: 100%;
+  background: rgba(51, 161, 214, 0.08);
+  border-left: 3px solid #33A1D6;
+  border-radius: 8px;
+  font-size: 13px;
+  color: #555;
+  line-height: 1.5;
+  text-align: left;
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  box-sizing: border-box;
+}
+
+.support-icon {
+  color: #33A1D6;
+  font-size: 18px;
+  flex-shrink: 0;
+  margin-top: -2px;
+}
+
+.support-email {
+  color: #33A1D6;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.2s;
+}
+
+.support-email:hover {
+  text-decoration: underline;
+  color: #2582b0;
+}

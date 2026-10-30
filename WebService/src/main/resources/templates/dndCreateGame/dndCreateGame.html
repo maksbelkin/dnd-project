@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>D&D Create Game</title>
+    <link href="https://fonts.googleapis.com/css2?family=Pochaevsk&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/dndCreateGameCss/dndCreateGameCss.css">
+</head>
+<body>
+<nav class="nav">
+    <a class="btnProfile nav-link" href="/profile">Профиль</a>
+    <a class="btnYourForge nav-link" href="/dnd-your-forge">Создать игру</a>
+    <a class="btnInformation nav-link" href="/dnd-information">Информация</a>
+    <a class="btnSchedule nav-link" href="/dnd-schedule">Расписание</a>
+    <a class="btnInstruction nav-link" href="/dnd-instruction">Инструкция</a>
+    <a class="btnHelp nav-link" href="/dnd-help">Помощь</a>
+</nav>
+
+<div class="welcome-wrapper">
+    <div class="welcome-block">
+        <h1 class="welcome-title">Создание игры</h1>
+        <h1 class="welcome-sub">Заполните параметры сессии</h1>
+
+        <div class="alert-error" th:if="${errorMessage}" th:text="${errorMessage}"></div>
+
+        <form id="createGameForm"
+              class="game-form"
+              th:action="@{/create-game}"
+              th:object="${gameCreateDto}"
+              method="post">
+
+            <input type="hidden" th:field="*{userId}">
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="gameTitle">Название игры</label>
+                    <input type="text" id="gameTitle" class="form-input" placeholder="Например: Королевство Калдом" th:field="*{name}">
+                    <span class="field-error" th:if="${#fields.hasErrors('name')}" th:errors="*{name}"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="gameImage">Изображение</label>
+                    <input type="text" id="gameImage" class="form-input" placeholder="Например: /img/one.jpg" th:field="*{image}">
+                    <span class="field-error" th:if="${#fields.hasErrors('image')}" th:errors="*{image}"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="gameDate">Дата</label>
+                    <input type="text" id="gameDate" class="form-input" placeholder="Например: 12.06" th:field="*{date}">
+                    <span class="field-error" th:if="${#fields.hasErrors('date')}" th:errors="*{date}"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="gameTime">Время</label>
+                    <input type="text" id="gameTime" class="form-input" placeholder="Например: 18:00 мск" th:field="*{time}">
+                    <span class="field-error" th:if="${#fields.hasErrors('time')}" th:errors="*{time}"></span>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="gameType">Тип игры</label>
+                    <select id="gameType" class="form-input" th:field="*{type}">
+                        <option value="" disabled selected>Выберите тип</option>
+                        <option th:each="t : ${T(com.example.WebService.model.enums.GameTypeEnum).values()}"
+                                th:value="${t}"
+                                th:text="${t.name() == 'VANSHOT' ? 'Ваншот' : 'Компания'}"></option>
+                    </select>
+                    <span class="field-error" th:if="${#fields.hasErrors('type')}" th:errors="*{type}"></span>
+                </div>
+
+                <div class="form-group">
+                    <label for="gameLevel">Уровень</label>
+                    <input type="text" id="gameLevel" class="form-input" placeholder="Например: 3 lvl" th:field="*{level}">
+                    <span class="field-error" th:if="${#fields.hasErrors('level')}" th:errors="*{level}"></span>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="gameDescription">Описание</label>
+                <textarea id="gameDescription" class="form-input form-textarea" rows="4" placeholder="Краткое описание игры" th:field="*{description}"></textarea>
+                <span class="field-error" th:if="${#fields.hasErrors('description')}" th:errors="*{description}"></span>
+            </div>
+
+            <button type="submit" class="btn-launch">Добавить игру</button>
+        </form>
+    </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
+<script src="/script/dndCreateGameScript/dndCreateGameScript.js"></script>
+</body>
+</html>

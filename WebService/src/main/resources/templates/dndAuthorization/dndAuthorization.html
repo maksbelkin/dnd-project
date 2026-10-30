@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Авторизация</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="/css/dndAuthorizationCss/dndAuthorizationCss.css">
+</head>
+<body>
+<div class="auth-card">
+    <h2 class="auth-title">Вход в систему</h2>
+
+    <div th:if="${error}" class="alert alert-danger" th:text="${error}"></div>
+
+    <form class="auth-form" action="/auth-user" method="post" th:object="${userAuthorizationCreateDto}">
+
+        <div class="form-group">
+            <label for="login" class="form-label">Логин</label>
+            <input type="text" id="login" class="form-input" placeholder="Введите ваш логин" th:field="*{login}">
+            <div class="text-danger" th:if="${#fields.hasErrors('login')}" th:errors="*{login}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="email" class="form-label">Почта</label>
+            <input type="email" id="email" class="form-input" placeholder="Введите ваш Email" th:field="*{email}">
+            <div class="text-danger" th:if="${#fields.hasErrors('email')}" th:errors="*{email}"></div>
+        </div>
+
+        <div class="form-group">
+            <label for="password" class="form-label">Пароль</label>
+            <input type="password" id="password" class="form-input" placeholder="Введите пароль" th:field="*{password}">
+            <div class="text-danger" th:if="${#fields.hasErrors('password')}" th:errors="*{password}"></div>
+        </div>
+
+        <button type="submit" class="btn-login">Войти</button>
+    </form>
+
+    <a href="/" class="forgot-password">Вернуться назад</a>
+
+    <div class="support-info">
+        <span class="support-icon">✉</span>
+        <span>Если забыли пароль, напишите в поддержку:
+      <a href="mailto:test@test.ru" class="support-email">test@test.ru</a></span>
+    </div>
+</div>
+</body>
+</html>

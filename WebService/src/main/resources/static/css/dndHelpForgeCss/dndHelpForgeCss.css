@@ -1,0 +1,247 @@
+body {
+    background-image: url('/img/forge_Authorization.webp');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    margin: 0;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.btnYourForge,
+.btnInformation,
+.btnSchedule,
+.btnInstruction,
+.btnHelp,
+.btnProfile,
+.btnSettings {
+    color: black;
+    text-decoration: none;
+    font-weight: normal;
+}
+
+.btnYourForge:hover,
+.btnProfile:hover,
+.btnInformation:hover,
+.btnSchedule:hover,
+.btnInstruction:hover,
+.btnSettings:hover {
+    color: black;
+    font-weight: bold;
+    text-decoration: underline;
+}
+
+.btnHelp {
+    font-weight: bold;
+    text-decoration: underline;
+    pointer-events: none;
+    cursor: default;
+}
+
+.help-container {
+    max-width: 650px;
+    width: 92%;
+    margin: 3vh auto 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: calc(100vh - 120px);
+    justify-content: center;
+}
+
+.success-wrapper {
+    width: 100%;
+    max-width: 650px;
+    height: 0;
+    position: relative;
+    overflow: visible;
+    flex-shrink: 0;
+}
+
+.success-message {
+    position: absolute;
+    top: -60px; /* приподнята вверх */
+    left: 0;
+    right: 0;
+    display: none;
+    align-items: center;
+    gap: 1rem;
+    background: rgb(245, 244, 244);
+    border: 2px solid #f2f5f2;
+    border-radius: 12px;
+    padding: 0.8rem 1.5rem;
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+    width: 100%;
+    box-sizing: border-box;
+    opacity: 0;
+    transform: translateY(-10px);
+    pointer-events: none;
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    box-shadow: 0 4px 20px rgba(76, 175, 80, 0.2);
+    z-index: 10;
+}
+
+.success-message.show {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+    pointer-events: auto;
+    animation: slideDown 0.5s ease forwards;
+}
+
+@keyframes slideDown {
+    0% {
+        opacity: 0;
+        transform: translateY(-20px) scale(0.95);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.success-title {
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #2e7d32;
+}
+
+.success-sub {
+    font-size: 0.9rem;
+    color: #4a4a4a;
+}
+
+.help-wrapper {
+    width: 100%;
+    background: rgba(255, 255, 255, 0.88);
+    backdrop-filter: blur(4px);
+    border-radius: 24px;
+    padding: 2.5rem 3rem 2.5rem 3rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    box-shadow: 0 16px 48px rgba(0, 0, 0, 0.4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 32px; 
+    position: relative;
+    z-index: 1;
+}
+
+.help-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.help-title {
+    font-size: 2.4rem;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-bottom: 0.1rem;
+    letter-spacing: 1px;
+}
+
+.help-subtitle {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: #333333;
+    margin-bottom: 0.3rem;
+}
+
+.help-description {
+    font-size: 1rem;
+    color: #555555;
+    margin-bottom: 1.5rem;
+}
+
+.ticket-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1.2rem;
+}
+
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 2px solid #d0c8c0;
+    border-radius: 12px;
+    font-size: 1rem;
+    resize: vertical;
+    transition: border-color 0.3s ease;
+    background: rgba(255, 255, 255, 0.6);
+    min-height: 100px;
+}
+
+.form-group textarea:focus {
+    outline: none;
+    border-color: #8b7355;
+    box-shadow: 0 0 0 4px rgba(139, 115, 85, 0.1);
+}
+
+.form-group textarea::placeholder {
+    color: #999999;
+}
+
+.priority-group {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.priority-label {
+    font-size: 0.95rem;
+    font-weight: 500;
+    color: #333333;
+}
+
+.priority-options {
+    display: flex;
+    gap: 1rem;
+}
+
+.priority-option {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    cursor: pointer;
+    padding: 0.4rem 1rem;
+    border-radius: 8px;
+    transition: background 0.2s ease;
+    font-size: 0.9rem;
+    color: #333333;
+}
+
+.priority-option:hover {
+    background: rgba(0, 0, 0, 0.05);
+}
+
+.priority-option input[type="radio"] {
+    accent-color: #1a1a1a;
+    width: 16px;
+    height: 16px;
+    cursor: pointer;
+}
+
+.btn-submit {
+    background: #1a1a1a;
+    color: #ffffff;
+    border: none;
+    border-radius: 12px;
+    padding: 0.8rem 2rem;
+    font-size: 1.1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.2s ease;
+    align-self: flex-start;
+    letter-spacing: 1px;
+}
+
+.btn-submit:hover {
+    background: #333333;
+    transform: translateY(-2px);
+}
+
+.btn-submit:active {
+    transform: translateY(0);
+}
